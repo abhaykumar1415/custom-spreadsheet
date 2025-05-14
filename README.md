@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Custom React Spreadsheet Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a fully custom-built **React spreadsheet** — developed from scratch without using any third-party spreadsheet libraries. It emulates core functionality of tools like Google Sheets including formulas, formatting, copy/paste, and file import/export.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✅ Feature Checklist
 
-### `npm start`
+| Feature                                                               | Status |
+| --------------------------------------------------------------------- | ------ |
+| 1. Display a default 10x10 grid                                       | ✅     |
+| 2. Add more rows and columns dynamically                              | ✅     |
+| 3. Add formulas for SUM and AVERAGE that update automatically         | ✅     |
+| 4. Format cells with bold text and background color                   | ✅     |
+| 5. Ability to copy and paste cells                                    | ✅     |
+| 6. Save the spreadsheet to JSON format and load existing spreadsheets | ✅     |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Highlights
 
-### `npm test`
+- Real-time formula evaluation (`=SUM`, `=AVERAGE`)
+- Keyboard support for `Ctrl/Cmd + C` and `Ctrl/Cmd + V`
+- Bold and background color formatting
+- Extendable and modular architecture
+- Clean and minimal UI inspired by spreadsheet tools
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Tech          | Purpose                   |
+| ------------- | ------------------------- |
+| React + Hooks | Component and state logic |
+| JavaScript    | Formula evaluation logic  |
+| CSS           | Styling and layout        |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup Instructions
 
-### `npm run eject`
+### 1. Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone
+cd to Application
+npm install
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Architecture Overview
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Performance Optimization
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### - React.memo() used for memoizing cells and headers
 
-## Learn More
+#### - useCallback() and useMemo() prevent unnecessary renders
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### - Atomic Component Design enables single-responsibility components that are easy to reason about, test, and extend individually
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### - Smart vs Dumb Component Separation
 
-### Code Splitting
+##### Spreadsheet handles state and logic (smart)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+##### Cell, Toolbar, Header, Body are focused on UI (dumb))
 
-### Analyzing the Bundle Size
+### 2. Code Readability
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### - Logic split into utility files: formulaEngine.js, spreadsheetUtils.js
 
-### Making a Progressive Web App
+#### - Styling extracted to a centralized CSS file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### - Separation of UI (Cell, Header, Body) and logic
